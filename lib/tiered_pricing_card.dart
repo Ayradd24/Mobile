@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'detail_katalog.dart';
 
 class TieredPricingCard extends StatelessWidget {
   const TieredPricingCard({super.key});
@@ -24,6 +25,8 @@ class TieredPricingCard extends StatelessWidget {
                 icon: Icons.phone_android,
                 packageName: 'Paket Pemula',
                 description: 'Cocok untuk kebutuhan dasar.',
+                detail:
+                    'Paket Pemula cocok untuk bisnis yang membutuhkan landing page sederhana, desain responsif, dan satu kali revisi.',
                 price: 'Rp 1.500.000',
                 duration: '/ proyek',
                 features: [
@@ -37,6 +40,8 @@ class TieredPricingCard extends StatelessWidget {
                 icon: Icons.web,
                 packageName: 'Paket Standar',
                 description: 'Pilihan tepat untuk usaha berkembang.',
+                detail:
+                    'Paket Standar mencakup website multi halaman, form kontak, dan tiga kali revisi.',
                 price: 'Rp 3.000.000',
                 duration: '/ proyek',
                 features: [
@@ -50,6 +55,8 @@ class TieredPricingCard extends StatelessWidget {
                 icon: Icons.laptop_mac,
                 packageName: 'Paket Profesional',
                 description: 'Solusi lengkap untuk kebutuhan bisnis.',
+                detail:
+                    'Paket Profesional menyediakan setup database, akun admin, serta dukungan prioritas.',
                 price: 'Rp 5.000.000',
                 duration: '/ proyek',
                 features: [
@@ -72,6 +79,7 @@ class PricingCard extends StatelessWidget {
   final IconData icon;
   final String packageName;
   final String description;
+  final String detail;
   final String price;
   final String duration;
   final List<String> features;
@@ -83,6 +91,7 @@ class PricingCard extends StatelessWidget {
     required this.icon,
     required this.packageName,
     required this.description,
+    required this.detail,
     required this.price,
     required this.duration,
     required this.features,
@@ -153,14 +162,12 @@ class PricingCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-
               ...features.map(
                 (feature) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: FeatureRow(text: feature),
                 ),
               ),
-
               const SizedBox(height: 14),
               SizedBox(
                 width: double.infinity,
@@ -170,9 +177,16 @@ class PricingCard extends StatelessWidget {
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('$packageName dipilih'),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailKatalog(
+                          nama: packageName,
+                          detail: detail,
+                          harga: price,
+                          icon: icon,
+                          warna: buttonColor,
+                        ),
                       ),
                     );
                   },
@@ -181,7 +195,6 @@ class PricingCard extends StatelessWidget {
               ),
             ],
           ),
-
           if (isRecommended)
             Positioned(
               top: 0,

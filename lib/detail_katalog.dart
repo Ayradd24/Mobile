@@ -64,7 +64,7 @@ class _DetailKatalogState extends State<DetailKatalog> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: widget.warna.withOpacity(0.1),
+                color: widget.warna.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(

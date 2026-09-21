@@ -13,14 +13,15 @@ class TieredPricingCard extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: ListView(
         padding: const EdgeInsets.all(20),
-        child: Center(
-          child: Wrap(
-            spacing: 20,
-            runSpacing: 20,
-            alignment: WrapAlignment.center,
-            children: const [
+        children: const [
+          Center(
+            child: Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              alignment: WrapAlignment.center,
+              children: [
               PricingCard(
                 icon: Icons.phone_android,
                 packageName: 'Paket Pemula',

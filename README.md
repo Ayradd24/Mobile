@@ -1,6 +1,4 @@
-# Tugas #5 Mobile Developer Documentation - Flutter Navigation & State
-
-Dokumentasi teknis: implementasi navigasi antar screen (Stack Navigation) dan manajemen state menggunakan Flutter.
+# Tugas #5 Mobile Developer Documentation - Flutter Navigation & StDokumentasi teknis: implementasi navigasi antar screen (Stack Navigation) dan manajemen state menggunakan Flutter.
 
 ---
 

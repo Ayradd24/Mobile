@@ -71,9 +71,10 @@ class TieredPricingCard extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
+      ],
+    ),
+  );
+}
 }
 
 class PricingCard extends StatelessWidget {
